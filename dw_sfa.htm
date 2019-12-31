@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->  
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>嘉士伯</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no minimal-ui">
+    <style>
+    html, body
+    {
+    margin: 0;
+    padding: 0;
+
+    }
+   
+    .header div {margin-right: auto; margin-left: auto;margin-top:15px;text-align:center}
+    div.textnormal {margin-top:8px;font-size:12px;color:#666666;font-weight:normal;}
+    div.appname {margin-top:8px;font-size:18px;color:#333333;font-weight:bold;}
+    .contents div {margin-right: 5%; margin-left: 5%;margin-top:8px;text-align:left;}
+    div.tips {margin-top:8px;font-size:16px;color:#333333;}
+    div.texts {margin-top:8px;font-size:14px;color:#666666;}
+
+    .button{margin-top:20px;margin-left:30%;width:40%;height:40px;background:#208ae1;font-size:16px;color:#ffffff;border-radius: 20px;border: 1px solid #208ae1;}
+
+
+
+
+    
+    
+    .loading {
+    background-color: transparent;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #1abc9c;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transition: all .25s;
+    transition: all .25s;
+    -webkit-animation: rotate .6s linear infinite;
+    animation: rotate .6s linear infinite;
+}
+    </style>
+    <script type="text/JavaScript">
+    window.onload = function(){
+    
+    if(!isSafari()){
+        var d1 = document.getElementById('exam');
+        d1.style.display = "block";
+        var d2 = document.getElementById('header');
+        d2.style.display = "none";
+        var d3 = document.getElementById('contents');
+        d3.style.display = "none";
+    }else
+    {
+        var d1 = document.getElementById('exam');
+        d1.style.display = "none";
+        var d2 = document.getElementById('header');
+        d2.style.display = "block";
+        var d3 = document.getElementById('contents');
+        d3.style.display = "block";
+    }
+    }
+    
+   
+    
+    function isSafari(){
+       var ua = window.navigator.userAgent.toLowerCase();
+       if (ua.indexOf("safari") > -1) {
+          return true;
+       }else
+       {
+          return false;
+       }
+    }
+    
+    function installApp()
+    {
+        var isOnPc=!(/webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent));
+        if(isOnPc)
+        {
+           alert("请在手机上使用浏览器打开本页面，即可安装")
+           return ;
+        }
+        var d1 = document.getElementById('loading');
+        d1.style.display = "block";
+        var d2 = document.getElementById('ins');
+        d2.style.display = "none";
+        
+        window.location.href = "itms-services://?action=download-manifest&amp;url=https://store.ebestmobile.net/iphone/carlsberg_sfa/carlsberg_sfa.plist"
+        
+        window.setTimeout(function(){
+           var d3 = document.getElementById('tipSuccess');
+           d3.style.display = "block";
+           var d4 = document.getElementById('loading');
+           d4.style.display = "none";
+        },5000); 
+
+    }
+     </script>
+</head>	
+
+<body>
+<div class = "header" id="header">
+   <div><img src="carlsberg.png" /></div>
+   <div class = "appname">测试app</div>
+   <div class = "textnormal">适用于IOS设备 | 系统9.0以上</div>
+   <HR style="margin-top:8px;" align=center width=90% color=#bcbcbc SIZE=1 noShade>
+</div>
+<div class = "contents" id="contents">
+      <div class = "tips">信息</div>
+      <div class = "texts">版本: 1.1.2.0 </div>
+      <div class = "texts">大小: 30.63 MB </div>
+      <div class = "texts">更新日期: 2019年10月27日 </div>
+      <HR style="margin-top:8px;" align=center width=90% color=#bcbcbc SIZE=1 noShade>
+      <div class = "tips">安装提示</div>
+      <div class = "texts">如安装后提示“未受信任的的企业级开发者”</br>解决方法:</br>手机－设置->通用->描述文件或设备管理->选中Shanghai eBest Information Technology Co.Ltd 点信任即可 </div>
+      <div id="tipSuccess" style="display:none;margin-top:10px;margin-right: auto; margin-left: auto;color:#72c02c;text-align:center;">正在安装，请按Home键在桌面查看</div>
+      <img id="loading" style = "display:none;margin-top: 10px;margin-right: auto; margin-left: auto;width:30px;height:30px;" src = "https://store.ebestmobile.net/iphone/smefactory/loading.gif"/>
+</br>
+      <button class = "button" onclick="installApp();" id="ins">点击安装</button>
+</div>
+
+<img id = "exam" src="https://store.ebestmobile.net/iphone/smefactory/exam.png" style = "display:none;MARGIN-RIGHT: auto; MARGIN-LEFT: auto;width:100%;height:100%;">
+</br>
+
+
+</body>
+</html>
